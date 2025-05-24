@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const Register = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
+
   const [form, setForm] = useState({
     mail: '',
     password: '',
@@ -33,10 +36,12 @@ const Register = () => {
         throw new Error(data.message || 'Error en el registro');
       }
 
+      // Guardar token y usuario
       localStorage.setItem('token', data.token);
+      login(data.user); // Autentica al usuario
 
       setMensaje('Registro exitoso. Redirigiendo...');
-      setTimeout(() => navigate('/'), 2000)
+      setTimeout(() => navigate('/personajes'), 1000); // Redirección actualizada
     } catch (err) {
       setError(err.message);
     }

@@ -18,7 +18,7 @@ function Login() {
       const res = await axios.post('http://localhost:3000/api/auth/login', { mail, password });
       login(res.data.user);
       localStorage.setItem('token', res.data.token);
-      navigate('/');
+      navigate('/personajes'); // 🔁 Redirección actualizada
     } catch (err) {
       setError(err.response?.data?.message || 'Error al iniciar sesión');
     }
