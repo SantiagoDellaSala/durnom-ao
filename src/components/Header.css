@@ -1,0 +1,45 @@
+.header {
+  background-color: #1a1a1a;
+  color: white;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 72px;                 /* igual al footer visualmente */
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;          /* centra verticalmente */
+  box-sizing: border-box;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.nav-link {
+  margin-right: 1rem;
+  color: white;
+  text-decoration: none;
+}
+
+.user-mail {
+  margin-right: 1rem;
+}
+
+.logout-btn {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  border-radius: 4px;
+}

@@ -2,21 +2,24 @@ import { app, BrowserWindow } from 'electron';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// Estas dos líneas reemplazan __dirname en ES module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 1000,
-    height: 700,
+    width: 1280,
+    height: 800,
+    resizable: true,
+    fullscreen: false,
+    frame: true, // muestra minimizar, cerrar, etc.
     webPreferences: {
       nodeIntegration: false,
     }
   });
 
-  // Cargar la app de Vite
+  win.setMenu(null); // Quitar menú superior
   win.loadURL('http://localhost:5173');
+  // win.webContents.openDevTools(); // ⬅️ útil si querés debug
 }
 
 app.whenReady().then(createWindow);
