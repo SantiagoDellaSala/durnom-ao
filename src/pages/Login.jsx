@@ -1,7 +1,8 @@
+import './Login.css';
 import { useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function Login() {
   const [mail, setMail] = useState('');
@@ -18,37 +19,40 @@ function Login() {
       const res = await axios.post('http://localhost:3000/api/auth/login', { mail, password });
       login(res.data.user);
       localStorage.setItem('token', res.data.token);
-      navigate('/personajes'); // 🔁 Redirección actualizada
+      navigate('/personajes');
     } catch (err) {
       setError(err.response?.data?.message || 'Error al iniciar sesión');
     }
   };
 
   return (
-    <main style={{ padding: '2rem' }}>
-      <h1>Iniciar sesión</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Mail:</label>
-          <input
-            type="email"
-            value={mail}
-            onChange={(e) => setMail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit">Entrar</button>
-      </form>
+    <main className="login-container">
+      <div className="login-box">
+        <Link to="/" className="btn-back">← Volver</Link> {/* Botón volver */}
+        <h1 className="login-title">Iniciar sesión</h1>
+        <form onSubmit={handleSubmit} className="login-form">
+          <div className="form-group">
+            <label>Mail:</label>
+            <input
+              type="email"
+              value={mail}
+              onChange={(e) => setMail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Contraseña:</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          {error && <p className="error-message">{error}</p>}
+          <button type="submit" className="login-button">Entrar</button>
+        </form>
+      </div>
     </main>
   );
 }
