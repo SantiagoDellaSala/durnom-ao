@@ -1,97 +1,131 @@
 .mis-personajes {
-  background: linear-gradient(to bottom right, #0f0f0f, #1a1a1a);
-  color: #e0e0e0;
-  min-height: 100vh;
   padding: 2rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .titulo {
-  text-align: center;
   font-size: 2.5rem;
-  color: #00bfff;
   margin-bottom: 2rem;
+  color: #00aaff;
+  text-shadow: 0 0 8px #0077ff;
+  letter-spacing: 2px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  width: 100%;
+  max-width: 1000px;
   margin-bottom: 2rem;
 }
 
 .slot {
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid #00bfff;
-  border-radius: 12px;
+  background-color: #111;
+  border: 2px dashed #444;
+  border-radius: 8px;
+  min-height: 200px;
   padding: 1rem;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 200px;
-  transition: transform 0.2s ease;
-}
-
-.slot:hover {
-  transform: scale(1.03);
-  background: rgba(0, 191, 255, 0.1);
-}
-
-.slot h3 {
-  margin: 0;
-  font-size: 1.2rem;
-  color: #00bfff;
-}
-
-.slot p {
-  margin: 0.3rem 0;
-  font-size: 0.95rem;
-  color: #ccc;
-}
-
-.vacante {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+}
+
+.personaje-card {
+  background-color: #1a1a1a;
+  border: 1px solid #0055aa;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 100%;
+  box-shadow: 0 0 10px #0047ab;
+  text-align: center;
+}
+
+.personaje-card h3 {
+  color: #00ccff;
+  margin-bottom: 0.5rem;
+}
+
+.personaje-card p {
+  margin: 0.2rem 0;
+}
+
+.btn-eliminar {
+  margin-top: 1rem;
+  background-color: #aa0000;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-eliminar:hover {
+  background-color: #ff0000;
+}
+
+.slot-vacio {
   color: #555;
   font-style: italic;
+  text-shadow: 0 0 2px #333;
 }
 
 .navbar {
   display: flex;
+  gap: 1rem;
   justify-content: center;
-  gap: 1.5rem;
 }
 
-.navbar button {
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  background-color: #00bfff;
-  color: #000;
+.btn-primary {
+  background-color: #0066ff;
+  color: white;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
   font-weight: bold;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.navbar button:hover {
-  background-color: #1ed2ff;
+.btn-primary:hover {
+  background-color: #0044cc;
 }
 
-.btn-eliminar {
-  background-color: #b22222;
-  border: none;
+.btn-secondary {
+  background-color: #333;
   color: white;
-  padding: 4px 8px;
-  margin-top: 8px;
+  border: 1px solid #00aaff;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  font-weight: bold;
   cursor: pointer;
-  border-radius: 4px;
-  font-size: 0.85rem;
+  transition: background-color 0.3s ease;
 }
 
-.btn-eliminar:hover {
-  background-color: #7a1212;
+.btn-secondary:hover {
+  background-color: #222;
+}
+
+.btn-back {
+  background-color: transparent;
+  border: 1px solid #aaa;
+  color: #aaa;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  color: white;
+  border-color: white;
+  background-color: #111;
 }

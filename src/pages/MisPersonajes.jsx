@@ -56,7 +56,7 @@ function MisPersonajes() {
   };
 
   return (
-    <div className="mis-personajes">
+    <main className="mis-personajes">
       <h1 className="titulo">Tus Personajes</h1>
       <div className="grid">
         {Array.from({ length: 6 }).map((_, i) => {
@@ -64,27 +64,29 @@ function MisPersonajes() {
           return (
             <div className="slot" key={i}>
               {personaje ? (
-                <div>
+                <div className="personaje-card">
                   <h3>{personaje.nick_name}</h3>
-                  <p>Nivel: {personaje.nivel}</p>
+                  <p><strong>Nivel:</strong> {personaje.nivel}</p>
                   <p><strong>Bando:</strong> {personaje.Bando?.nombre || 'N/A'}</p>
                   <p><strong>Clase:</strong> {personaje.Clase?.nombre || 'N/A'}</p>
                   <p><strong>Raza:</strong> {personaje.Raza?.nombre || 'N/A'}</p>
                   <button onClick={() => handleEliminar(personaje.id)} className="btn-eliminar">Eliminar</button>
                 </div>
               ) : (
-                <p className="vacante">Vacío</p>
+                <div className="slot-vacio">
+                  <p className="vacante">Vacío</p>
+                </div>
               )}
             </div>
           );
         })}
       </div>
       <nav className="navbar">
-        <button onClick={handleCrear}>Crear</button>
-        <button onClick={handleConectar}>Conectar</button>
-        <button onClick={handleVolver}>Volver</button>
+        <button onClick={handleCrear} className="btn-primary">Crear</button>
+        <button onClick={handleConectar} className="btn-secondary">Conectar</button>
+        <button onClick={handleVolver} className="btn-back">Volver</button>
       </nav>
-    </div>
+    </main>
   );
 }
 
