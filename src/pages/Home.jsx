@@ -9,14 +9,15 @@ function Home() {
       <div className="background"></div>
 
       <h1>Bienvenido a Durnom</h1>
-      <p>Noticias del desarrollo aparecerán aquí.</p>
+      <p>Un mundo nuevo te espera.</p>
 
       <section className="noticia">
         <img src="/noticias1.png" alt="Noticia 1" className="noticia-img" />
-        <h2>¡Primera imagen del juego!</h2>
+        <h2>Seguimos en pleno desarrollo</h2>
         <p>
-          Aquí tienes un primer vistazo al mundo de Durnom. Estamos trabajando duro para crear una experiencia
-          inmersiva y única. ¡Gracias por acompañarnos en este viaje!
+          Aún estamos trabajando en la parte "detrás de escena", eso que ustedes no van a ver en su pantalla, pero que les va a dar
+          una jugabilidad, seguridad y diversión asegurada. Queremos ser los mejores, vamos a ser los mejores. Juntos, seremos la mejor 
+          comunidad de Argentum Online que haya existido.
         </p>
       </section>
 
