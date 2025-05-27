@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import './Register.css';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -36,62 +37,63 @@ const Register = () => {
         throw new Error(data.message || 'Error en el registro');
       }
 
-      // Guardar token y usuario
       localStorage.setItem('token', data.token);
-      login(data.user); // Autentica al usuario
+      login(data.user);
 
       setMensaje('Registro exitoso. Redirigiendo...');
-      setTimeout(() => navigate('/personajes'), 1000); // Redirección actualizada
+      setTimeout(() => navigate('/personajes'), 1000);
     } catch (err) {
       setError(err.message);
     }
   };
 
   return (
-    <div className="container mt-4">
-      <h2>Registrarse</h2>
-      {mensaje && <div className="alert alert-success">{mensaje}</div>}
-      {error && <div className="alert alert-danger">{error}</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label className="form-label">Correo</label>
-          <input
-            type="email"
-            name="mail"
-            value={form.mail}
-            onChange={handleChange}
-            className="form-control"
-            required
-          />
-        </div>
+    <main className="register-container">
+      <div className="register-box">
+        <Link to="/" className="btn-back">← Volver</Link>
+        <h2 className="register-title">Registrarse</h2>
 
-        <div className="mb-3">
-          <label className="form-label">password</label>
-          <input
-            type="password"
-            name="password"
-            value={form.password}
-            onChange={handleChange}
-            className="form-control"
-            required
-          />
-        </div>
+        {mensaje && <p className="mensaje">{mensaje}</p>}
+        {error && <p className="error-message">{error}</p>}
 
-        <div className="mb-3">
-          <label className="form-label">Código de seguridad</label>
-          <input
-            type="text"
-            name="codigo_seguridad"
-            value={form.codigo_seguridad}
-            onChange={handleChange}
-            className="form-control"
-            required
-          />
-        </div>
+        <form onSubmit={handleSubmit} className="register-form">
+          <div className="form-group">
+            <label>Correo</label>
+            <input
+              type="email"
+              name="mail"
+              value={form.mail}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <button type="submit" className="btn btn-primary">Registrarse</button>
-      </form>
-    </div>
+          <div className="form-group">
+            <label>Contraseña</label>
+            <input
+              type="password"
+              name="password"
+              value={form.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Código de seguridad</label>
+            <input
+              type="text"
+              name="codigo_seguridad"
+              value={form.codigo_seguridad}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <button type="submit" className="register-button">Registrarse</button>
+        </form>
+      </div>
+    </main>
   );
 };
 
