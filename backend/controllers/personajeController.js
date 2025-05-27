@@ -35,8 +35,12 @@ const crearPersonaje = async (req, res) => {
       experiencia: experiencia || 0,
       bandoId,
       claseId,
-      razaId
+      razaId,
+      posX: 50,
+      posY: 50,
+      mapa: 'mapa1'
     });
+
 
     res.status(201).json(nuevoPersonaje);
   } catch (error) {

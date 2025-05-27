@@ -19,11 +19,15 @@ module.exports = (sequelize, DataTypes) => {
       bandoId: DataTypes.INTEGER,
       claseId: DataTypes.INTEGER,
       razaId: DataTypes.INTEGER,
+      posX: DataTypes.INTEGER,
+      posY: DataTypes.INTEGER,
+      mapa: DataTypes.STRING
     },
     {
       sequelize,
       modelName: "Personaje",
     }
   );
+
   return Personaje;
 };

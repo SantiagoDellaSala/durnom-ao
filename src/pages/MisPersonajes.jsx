@@ -70,8 +70,11 @@ function MisPersonajes() {
                   <p><strong>Bando:</strong> {personaje.Bando?.nombre || 'N/A'}</p>
                   <p><strong>Clase:</strong> {personaje.Clase?.nombre || 'N/A'}</p>
                   <p><strong>Raza:</strong> {personaje.Raza?.nombre || 'N/A'}</p>
+                  <p><strong>Mapa:</strong> {personaje.mapa || 'Desconocido'}</p>
+                  <p><strong>Posición:</strong> ({personaje.posX}, {personaje.posY})</p>
                   <button onClick={() => handleEliminar(personaje.id)} className="btn-eliminar">Eliminar</button>
                 </div>
+
               ) : (
                 <div className="slot-vacio">
                   <p className="vacante">Vacío</p>
