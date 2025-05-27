@@ -43,3 +43,10 @@
   cursor: pointer;
   border-radius: 4px;
 }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+

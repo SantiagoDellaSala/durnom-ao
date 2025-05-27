@@ -9,6 +9,7 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 1280,
     height: 800,
+    icon: path.join(__dirname, 'public', 'icono.ico'),
     resizable: true,
     fullscreen: false,
     frame: true, // muestra minimizar, cerrar, etc.
