@@ -65,6 +65,29 @@ const eliminarPersonaje = async (req, res) => {
     console.error(error);
     res.status(500).json({ message: 'Error al eliminar personaje' });
   }
+  
 };
 
-module.exports = { getPersonajesByUser, crearPersonaje, eliminarPersonaje };
+const actualizarPosicion = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { posX, posY } = req.body;
+
+    const personaje = await Personaje.findByPk(id);
+    if (!personaje) {
+      return res.status(404).json({ message: 'Personaje no encontrado' });
+    }
+
+    personaje.posX = posX;
+    personaje.posY = posY;
+    await personaje.save();
+
+    res.json({ message: 'Posición actualizada', personaje });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error al actualizar la posición' });
+  }
+};
+
+
+module.exports = { getPersonajesByUser, crearPersonaje, eliminarPersonaje, actualizarPosicion };
