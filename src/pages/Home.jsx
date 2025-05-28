@@ -7,10 +7,6 @@ function Home() {
     <main className="home">
       <Header />
       <div className="background"></div>
-
-      <h1>Bienvenido a Durnom</h1>
-      <p>Un mundo nuevo te espera.</p>
-
       <section className="noticia">
         <img src="/noticias1.png" alt="Noticia 1" className="noticia-img" />
         <h2>Seguimos en pleno desarrollo</h2>

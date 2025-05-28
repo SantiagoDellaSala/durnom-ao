@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import MisPersonajes from "./pages/MisPersonajes";
 import CrearPersonaje from "./pages/CrearPersonaje";
 import PrivateRoute from "./components/PrivateRoute";
+import GameCanvas from './pages/GameCanvas';
 
 function AppRoutes() {
   return (
@@ -27,6 +28,14 @@ function AppRoutes() {
         element={
           <PrivateRoute>
             <CrearPersonaje />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/game"
+        element={
+          <PrivateRoute>
+            <GameCanvas />
           </PrivateRoute>
         }
       />

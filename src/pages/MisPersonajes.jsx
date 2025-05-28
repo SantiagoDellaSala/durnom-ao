@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { useGame } from '../context/GameContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './misPersonajes.css';
 
 function MisPersonajes() {
   const { user } = useAuth();
+  const { setPersonajeConectado } = useGame();
   const [personajes, setPersonajes] = useState([]);
   const navigate = useNavigate();
 
@@ -29,6 +31,11 @@ function MisPersonajes() {
     }
   };
 
+  const handleConectar = (personaje) => {
+    setPersonajeConectado(personaje);
+    navigate('/game');
+  };
+
   const handleCrear = () => {
     if (personajes.length >= 6) {
       alert('Ya tienes 6 personajes, no puedes crear más.');
@@ -38,8 +45,6 @@ function MisPersonajes() {
   };
 
   const handleVolver = () => navigate('/');
-
-  const handleConectar = () => alert('Funcionalidad aún no implementada');
 
   const handleEliminar = async (id) => {
     if (!window.confirm('¿Estás seguro de eliminar este personaje?')) return;
@@ -73,8 +78,8 @@ function MisPersonajes() {
                   <p><strong>Mapa:</strong> {personaje.mapa || 'Desconocido'}</p>
                   <p><strong>Posición:</strong> ({personaje.posX}, {personaje.posY})</p>
                   <button onClick={() => handleEliminar(personaje.id)} className="btn-eliminar">Eliminar</button>
+                  <button onClick={() => handleConectar(personaje)} className="btn-conectar">Conectar</button>
                 </div>
-
               ) : (
                 <div className="slot-vacio">
                   <p className="vacante">Vacío</p>
@@ -86,7 +91,6 @@ function MisPersonajes() {
       </div>
       <nav className="navbar">
         <button onClick={handleCrear} className="btn-primary">Crear</button>
-        <button onClick={handleConectar} className="btn-secondary">Conectar</button>
         <button onClick={handleVolver} className="btn-back">Volver</button>
       </nav>
     </main>

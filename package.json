@@ -9,7 +9,11 @@
     "dev:electron": "wait-on http://localhost:5173 && electron .",
     "dev:vite": "vite",
     "build": "vite build",
-    "start": "electron ."
+    "start": "electron .",
+    "db:undo-all": "npx sequelize-cli db:migrate:undo:all",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:seed": "npx sequelize-cli db:seed:all",
+    "db:reset": "npm run db:undo-all && npm run db:migrate && npm run db:seed"
   },
   "dependencies": {
     "axios": "^1.9.0",
